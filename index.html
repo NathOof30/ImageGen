@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,11 @@
     <script src="script.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
 </head>
+
 <body>
     <div class="container">
         <h1>🎨 Générateur d'Images Aléatoires</h1>
-        
+
         <div class="form-container">
             <form id="imageForm">
                 <div class="dimensions-group">
@@ -20,31 +22,37 @@
                         <input type="number" id="width" min="1" max="5000" value="400" required>
                         <div class="error" id="widthError">Max 5000px</div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="height">Hauteur (px)</label>
                         <input type="number" id="height" min="1" max="5000" value="300" required>
                         <div class="error" id="heightError">Max 5000px</div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="count">Nombre d'images</label>
                         <input type="number" id="count" min="1" max="20" value="1" required>
                         <div class="error" id="countError">Max 20 images</div>
                     </div>
                 </div>
-                
+
                 <button type="submit" class="btn">Générer les images</button>
             </form>
         </div>
 
         <div class="loading" id="loading">Génération en cours...</div>
-        
+
         <div class="download-all-container" id="downloadAllContainer" style="display: none;">
             <button class="btn-download-all" id="downloadAllBtn">📦 Télécharger toutes les images (ZIP)</button>
         </div>
-        
+
+        <div class="hero-image-container" id="heroContainer">
+            <img id="heroImage" src="https://picsum.photos/800/400?random=0" alt="Image d'exemple">
+            <div class="hero-caption">✨ Découvrez la magie des images aléatoires...</div>
+        </div>
+
         <div class="images-container" id="imagesContainer"></div>
     </div>
 </body>
+
 </html>

@@ -6,8 +6,17 @@ const imagesContainer = document.getElementById('imagesContainer');
 const loading = document.getElementById('loading');
 const downloadAllContainer = document.getElementById('downloadAllContainer');
 const downloadAllBtn = document.getElementById('downloadAllBtn');
-
+const heroContainer = document.getElementById('heroContainer');
+const heroImage = document.getElementById('heroImage');
+let heroImageCounter = 1;
+let heroInterval;
 let generatedImages = [];
+
+
+heroInterval = setInterval(() => {
+    heroImage.src = `https://picsum.photos/1600/800?random=${heroImageCounter}`;
+    heroImageCounter++;
+}, 2000);
 
 function validateInput(input, errorElement, max) {
     const value = parseInt(input.value);
@@ -103,6 +112,9 @@ form.addEventListener('submit', async (e) => {
     if (!isWidthValid || !isHeightValid || !isCountValid) {
         return;
     }
+
+    clearInterval(heroInterval);
+    heroContainer.style.display = 'none';
 
     imagesContainer.innerHTML = '';
     generatedImages = [];
